@@ -11,6 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140722020330) do
+
+  create_table "urls", force: true do |t|
+    t.string   "url"
+    t.string   "owner"
+    t.date     "purchased_date"
+    t.date     "expiration_date"
+    t.string   "project_name"
+    t.string   "redirect"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+  end
 
 end
