@@ -1,7 +1,7 @@
 class CreateUrls < ActiveRecord::Migration
   def change
-    create_table :urls do |t|
-      t.string "url"
+    create_table :domains do |t|
+      t.string "domain"
       t.string "owner"
       t.date "purchased_date"
       t.date "expiration_date"

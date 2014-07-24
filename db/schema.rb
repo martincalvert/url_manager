@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722020330) do
+ActiveRecord::Schema.define(version: 20140724014944) do
 
-  create_table "urls", force: true do |t|
-    t.string   "url"
+  create_table "domains", force: true do |t|
+    t.string   "domain"
     t.string   "owner"
     t.date     "purchased_date"
     t.date     "expiration_date"
