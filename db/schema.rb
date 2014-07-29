@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725143559) do
+ActiveRecord::Schema.define(version: 20140727215958) do
 
   create_table "domains", force: true do |t|
     t.string   "domain_name"
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20140725143559) do
     t.date     "purchased_date"
     t.date     "expiration_date"
     t.string   "project_name"
-    t.string   "redirect"
+    t.binary   "redirect"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "redirect_url"
   end
 
   create_table "users", force: true do |t|

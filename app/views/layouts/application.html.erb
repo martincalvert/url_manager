@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>UrlManager</title>
+  <title>342 Wallabee Lane</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <style>
+    .content{
+      margin-top: 5em;
+    }
+    
+  </style>
 </head>
 <body>
-<div class="container col-xs-12 text-center">
-  <h1>Dory<span class="text-muted">- A Domain Name Manager</span></h1>
+  <div class="container">
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to('Dory - A Domain Name Manager',{:action=>'index'},:class=>"navbar-brand")%>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li id="home"><%= link_to('Home',{:action=>'index'})%></li>
+            <li id="contact"><a href="contact.php">Contact Me</a></li>
+          </ul>
+          
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+<div class="container col-xs-12 text-center content">
+  </div><% if !flash[:notice].blank? %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
 <%= yield %>
 </div>
+<script>
+  $("[data-toggle=tooltip]")
+.tooltip({html:true});
+$(document).ready(function(){
+  $("#1").removeClass("hidden");
+})
+$(".next").click(function(){
+  var value=$(this).val()
+  $('#'+(parseInt(value)-1)).addClass("hidden")
+  $('#'+value).removeClass("hidden")
+})
+$(".back").click(function(){
+  var value=$(this).val()
+  $('#'+(parseInt(value)+1)).addClass("hidden")
+  $('#'+value).removeClass("hidden")
+})
+</script>
 </body>
 </html>
