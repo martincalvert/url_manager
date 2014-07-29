@@ -1,0 +1,19 @@
+//table ellipsis
+	$('.table-overflow').dotdotdot({
+	   ellipsis: "(...)",
+	   watch: true,
+	   wrap: 'letter',
+	   height: 28,
+	   callback: function(isTruncated, orgContent) {
+	       if(isTruncated) {
+	           $(this).hover(function() {
+	               //mouse in
+	               var off = $(this).offset();
+	               showTooltip(off.left, off.top + 10, orgContent[0].wholeText);
+	           }, function() {
+	               //mouse out
+                    $("#tooltip").remove();
+	           });
+	       }
+	   }
+	});
