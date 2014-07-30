@@ -24,8 +24,6 @@ class DomainController < ApplicationController
       @domains=Domain.oldest_purchase
     end
     
-    
-    
     @table_num=1
     @x=0
     @tables=false
@@ -38,6 +36,18 @@ class DomainController < ApplicationController
   end
 
   def new
+    @domain=Domain.new
+  end
+
+  def create
+    @domain=Domain.new(domain_params)
+    if @domain.save
+      flash[:notice]="Domain created!"
+      redirect_to({:action=>'show',:id=>@domain.id})
+    else
+      render('new')
+    end
+    
   end
 
   def edit

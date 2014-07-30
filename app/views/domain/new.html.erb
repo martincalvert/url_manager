@@ -1,2 +1,10 @@
-<h1>Domain#new</h1>
-<p>Find me in app/views/domain/new.html.erb</p>
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+  <h3>Add Domain</h3>
+  <%= form_for(:domain, :url=>{:action=>'create'}, :class=>"form") do |f| %>
+    <%= render(:partial =>"form",:locals => {:f=>f}) %>
+  
+  <%= submit_tag("Add Domain",:class=>"btn btn-primary col-sm-4 col-sm-offset-4")%>
+  
+  <%end%>
+  
+</div>

@@ -1,32 +1,7 @@
 <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
   <h3>Update</h3>
   <%= form_for(:domain, :url=>{:action=>'update', :id => @domain.id},:class=>"form") do |f| %>
-    <div class="form-group">
-    <%= f.label(:domain_name,:class=>"col-xs-12 col-sm-12")%>
-    <%= f.text_field(:domain_name,:class=>"col-xs-12 col-sm-12") %>
-    </div>
-    <div class="form-grouP">
-    <%= f.label(:owner,:class=>"col-xs-12 col-sm-6")%>
-    <%= f.label(:project_name,:class=>"col-xs-12 col-sm-6")%>
-    <%= f.text_field(:owner,:class=>"col-xs-12 col-sm-6") %>
-    <%= f.text_field(:project_name,:class=>"col-xs-12 col-sm-6") %>
-    </div>
-    <div class="form-group">
-    <%= f.label(:purchased_date,:class=>"col-xs-12 col-sm-3")%>
-    <%= f.label(:expiration_date,:class=>"col-xs-12 col-sm-3")%>
-    <%= f.label(:redirect,:class=>"col-xs-12 col-sm-2")%>
-    <%= f.label(:redirect_url,:class=>"col-xs-12 col-sm-4")%>
-    <%= f.text_field(:purchased_date,:class=>"col-xs-12 col-sm-3") %>
-    <%= f.text_field(:expiration_date,:class=>"col-xs-12 col-sm-3") %>
-    <div class="col-xs-12 col-sm-2">
-    <%= f.select(:redirect,{'True'=>1,'False'=>0}) %>
-    </div>
-    <%= f.text_field(:redirect_url,:class=>"col-xs-12 col-sm-4") %>
-    </div>
-    <div class="form-group">
-    <%= f.label(:notes,:class=>"col-xs-12 col-sm-12")%>
-    <%= f.text_area(:notes,:class=>"col-sm-12") %>
-    </div>
+    <%= render(:partial =>"form",:locals => {:f=>f}) %>
   
   <%= submit_tag("Update Domain",:class=>"btn btn-primary col-sm-4 col-sm-offset-4")%>
   

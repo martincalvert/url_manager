@@ -1,16 +1,4 @@
-<div class="domains">
-  <div class="col-xs-12 col-sm-8 text-left">
-    <%= link_to('Alphabetical<span class="glyphicon glyphicon-sort-by-alphabet"></span>'.html_safe,{:action=>'index',:sort=>'alpha_sort_forward'},{:class=>'btn btn-primary',:id=>'alpha_sort_forward'})%>
-    <%= link_to('Alphabetical<span class="glyphicon glyphicon-sort-by-alphabet-alt" style="font-size:1.2em"></span>'.html_safe,{:action=>'index',:sort=>'alpha_sort_backward'},{:class=>'btn btn-primary',:id=>'alpha_sort_backward'})%>
-    <%= link_to('Purchase<span class="glyphicon glyphicon-arrow-down"></span>'.html_safe,{:action=>'index',:sort=>'newest_purchase'},{:class=>'btn btn-primary',:id=>'newest_purchase'})%>
-    <%= link_to('Purchase<span class="glyphicon glyphicon-arrow-up"></span>'.html_safe,{:action=>'index',:sort=>'oldest_purchase'},{:class=>'btn btn-primary',:id=>'oldest_purchase'})%>
-    <%= link_to('Expiring<span class="glyphicon glyphicon-arrow-down"></span>'.html_safe,{:action=>'index',:sort=>'expiring_soon'},{:class=>'btn btn-primary',:id=>'expiring_soon'})%>
-    <%= link_to('Expiring<span class="glyphicon glyphicon-arrow-up"></span>'.html_safe,{:action=>'index',:sort=>'expiring_later'},{:class=>'btn btn-primary',:id=>'expiring_later'})%>
-  </div>
-  <div class="col-xs-12 col-sm-4 text-right">
-    <%= link_to('<span class="glyphicon glyphicon-plus"></span> Domain'.html_safe,{:action=>'new'},{:class=>'btn btn-primary'})%>
-  </div>
-  <div class="col-xs-12" style="margin-top: .9em;">
+<div class="col-xs-12" style="margin-top: .9em;">
     
   <% loop do %>
   <% y=0 %>
