@@ -49,6 +49,19 @@ class DomainController < ApplicationController
     end
     
   end
+  
+  def search
+    if params[:criteria]
+      @domains=Domain.where("domain_name like ?","%#{params[:criteria]}%")
+      @table_num=1
+      @x=0
+      @tables=false
+      @table_size=24
+    else
+      redirect_to(:action=>'index')
+    end
+    
+  end
 
   def edit
     @domain=Domain.find(params[:id])
