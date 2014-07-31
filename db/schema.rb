@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727215958) do
+ActiveRecord::Schema.define(version: 20140731213105) do
 
   create_table "domains", force: true do |t|
     t.string   "domain_name"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20140727215958) do
     t.datetime "updated_at"
     t.string   "redirect_url"
   end
+
+  add_index "domains", ["domain_name"], name: "index_domains_on_domain_name", using: :btree
+  add_index "domains", ["expiration_date"], name: "index_domains_on_expiration_date", using: :btree
+  add_index "domains", ["purchased_date"], name: "index_domains_on_purchased_date", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
