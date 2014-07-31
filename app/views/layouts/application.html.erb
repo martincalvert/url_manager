@@ -30,12 +30,12 @@
             <li id="home"><%= link_to('Home',{:action=>'index'})%></li>
             <li id="contact"><a href="http://martin-calvert.com">Contact Me</a></li>
           </ul>
-          <form class="navbar-form navbar-left" id="search" role="search">
+          <span class="navbar-form navbar-left" id="search" role="search">
   <div class="form-group">
     <input type="text" id="criteria" name="criteria" class="form-control" placeholder="Search">
   </div>
   <span id="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></span>
-</form>
+</span>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -52,24 +52,28 @@
 </div>
 <script>
   $('#alert').alert()
-  $("[data-toggle=tooltip]")
-.tooltip({html:true});
-$(document).ready(function(){
-  $("#1").removeClass("hidden");
-})
-$(".next").click(function(){
-  var value=$(this).val()
-  $('#'+(parseInt(value)-1)).addClass("hidden")
-  $('#'+value).removeClass("hidden")
-})
-$(".back").click(function(){
-  var value=$(this).val()
-  $('#'+(parseInt(value)+1)).addClass("hidden")
-  $('#'+value).removeClass("hidden")
-})
-$("#submit").click(function(){
-  window.location="../domain/search?"+$("#search").serialize()
-})
+  $("[data-toggle=tooltip]").tooltip({html:true});
+  $(document).ready(function(){
+    $("#1").removeClass("hidden");
+  })
+  $(".next").click(function(){
+    var value=$(this).val()
+    $('#'+(parseInt(value)-1)).addClass("hidden")
+    $('#'+value).removeClass("hidden")
+  })
+  $(".back").click(function(){
+    var value=$(this).val()
+    $('#'+(parseInt(value)+1)).addClass("hidden")
+    $('#'+value).removeClass("hidden")
+  })
+  $("span#submit").click(function(){
+    window.location="../domain/search?criteria="+$('#criteria').val()
+  })
+  $("span#search").on("keydown", function(event){
+      if(event.keyCode == 13){
+          window.location="../domain/search?criteria="+$('#criteria').val()
+      }
+  })
 </script>
 </body>
 </html>
