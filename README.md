@@ -7,7 +7,8 @@ This is a rails app that is made to manage a large amount domain names. It does 
 ###Setup Steps (OSX 10.9+)
 1. Install the command line tools for OSX. Open terminal and type `gcc` if the tools are not installed it will prompt you to install them.
 2. Install rails. In terminal type `sudo gem install rails` this should prompt you to install the rails gem, which will also install many other gems used for rails development.
-3. Install Homebrew (you can skip this step if you want to install MySQL a different way, I prefer homebrew for these simple setups). In terminal type `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
+3. Install Homebrew (you can skip this step if you want to install MySQL a different way, I prefer homebrew for these simple setups). In terminal type 
+`ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
 4. After Homebrew is installed run `brew doctor` in terminal to cleanup and prepare homebrew
 5. Now install MySQL by typing `brew install mysql`
 6. Now run `bundle` while in the root directory of the app
