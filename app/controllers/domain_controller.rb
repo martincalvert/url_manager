@@ -51,15 +51,31 @@ class DomainController < ApplicationController
   end
   
   def search
-    if params[:criteria]
+    if params[:criteria].size>0
       @domains=Domain.where("domain_name like ?","%#{params[:criteria]}%")
       @table_num=1
       @x=0
       @tables=false
       @table_size=24
     else
-      redirect_to(:action=>'index')
+      redirect_to(:action=>'advanced')
     end
+    
+  end
+  
+  def advanced_search
+    if params[:criteria].size>0
+      @domains=Domain.where("? like ?","#{params[:field]}","%#{params[:criteria]}%")
+      @table_num=1
+      @x=0
+      @tables=false
+      @table_size=24
+    else
+      redirect_to(:action=>'advanced')
+    end
+  end
+  
+  def advanced
     
   end
 

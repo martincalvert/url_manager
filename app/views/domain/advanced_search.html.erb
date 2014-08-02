@@ -1,0 +1,69 @@
+<div class="col-xs-12" style="margin-top: .9em;">
+    <h2><span class="text-muted">Results for :</span><%=params[:criteria]%></h2>
+  <% loop do %>
+  <% y=0 %>
+  <span class="hidden" id="<%= @table_num%>">
+  <table  class="table table-responsive table-striped table-bordered">
+    <tr>
+    <td><small>Domain</small></td>
+    <td class="hidden-xs"><small>Owner</small></td>
+    <td class="hidden-xs"><small>Project</small></td>
+    <td class="hidden-xs"><small>Purchase Date</small></td>
+    <td class="hidden-xs"><small>Expiration Date</small></td>
+    <td class="hidden-xs"><small>Redirect</small></td>
+    <td class="hidden-xs"><small>Redirect URL</small></td>
+    <td class="hidden-xs"><small>Notes</small></td>
+    <td><small>Tools</small></td>
+    </tr>
+    <% while @x<@domains.size && y<@table_size %>
+      <tr>
+        <td><a href="http://www.<%= @domains[@x].domain_name%>"><%= @domains[@x].domain_name%></a></td>
+        <td class="hidden-xs"><%= @domains[@x].owner%></td>
+        <td class="hidden-xs"><%= @domains[@x].project_name%></td>
+        <td class="hidden-xs"><%= @domains[@x].purchased_date%></td>
+        <td class="hidden-xs"><%= @domains[@x].expiration_date%></td>
+        <td class="hidden-xs"><% if @domains[@x].redirect=="1"%>
+              <span class="glyphicon glyphicon-ok text-success"></span>
+            <% elsif @domains[@x].redirect=="0"%>
+              <span class="glyphicon glyphicon-remove text-danger"></span>
+              <%else%>
+                <%= @domains[@x].redirect%>
+            <%end%>
+        </td>
+        <td class="hidden-xs"><a href="http://www.<%= @domains[@x].redirect_url%>"><%= @domains[@x].redirect_url%></a></td>
+        <td class="hidden-xs"><button type="button" class="btn btn-default" data-container="body" data-toggle="tooltip" data-placement="top" title="<%= @domains[@x].notes%>">
+  <span class="glyphicon glyphicon-comment"></span>
+</button></td>
+      <td><%= link_to('<span class="text-success glyphicon glyphicon-pencil"></span>'.html_safe, {:action => 'edit', :id => @domains[@x].id})%> | <%= link_to('<span class="text-danger glyphicon glyphicon-remove"></span>'.html_safe, {:action => 'delete', :id => @domains[@x].id})%></td>
+        <% @x+=1 %>
+        <% y+=1 %>
+      </tr>
+      
+    <% end %>
+  </table>
+  <% if @table_num>1 %>
+  <div class="col-xs-2"><button value="<%=@table_num-1%>" class="btn btn-primary back"><h3><span class="glyphicon glyphicon-circle-arrow-left"></span></h3></button></div>
+  <% else %>
+    <div class="col-xs-2"></div>
+  <%end%>
+  
+  
+  <% if @x==@domains.size %>
+    <% @tables=false%>
+  <%else%>
+      <% @tables=true%>
+      
+      <div class="col-xs-2 col-xs-offset-8"><button value="<%=@table_num+1%>" class="btn btn-primary next"><h3><span class="glyphicon glyphicon-circle-arrow-right"></span></h3></button></div>
+  <%end%>
+  </span>
+  <% @table_num+=1 %>
+  <% break if @tables==false %>
+  <% end %>
+  
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('#<%=@sort%>').addClass('disabled')
+  })
+</script>
