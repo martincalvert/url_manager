@@ -23,8 +23,10 @@ This is a rails app that is made to manage a large amount domain names. It does 
 
 ###Version History
 **V 1.0** – 7/30/14 – Basic app up and running using MySQL, search is not enabled in this build. 
+**V 1.1** – 8/4/14 – Added default route and implemented global search on `domain_name`
 
 ###Upcoming Additions
+* User access controls - V 2.0
 * Search page for searching on other columsn - V 2.0
 * Load initial data into local JSON and use TableSorter for sort operations - V 2.0
 * Search on multiple columns - V2.5
