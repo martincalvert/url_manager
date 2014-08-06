@@ -27,8 +27,9 @@ This is a rails app that is made to manage a large amount domain names. It does 
 
 ###Upcoming Additions
 * User access controls - V 2.0
-* Search page for searching on other columsn - V 2.0
-* Load initial data into local JSON and use TableSorter for sort operations - V 2.0
+* Adding Knockout.js to domain editor V 2.0
+* Search page for searching on other columns - V 2.0
+* Load initial data into local JSON and use TableSorter for sort operations - V 2.5
 * Search on multiple columns - V2.5
 
 
